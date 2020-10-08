@@ -1,0 +1,17 @@
+[CSF-RHEL-7-extras]
+name=CSF-RHEL-7-extras
+baseurl=https://repo.lab.pl.alcatel-lucent.com//CSF-RHEL-7-extras/
+enabled=1
+gpgcheck=0
+
+[CSF-RHEL-7]
+name=CSF-RHEL-7
+baseurl=https://repo.lab.pl.alcatel-lucent.com//CSF-RHEL-7
+enabled=1
+gpgcheck=0
+
+[CSF_EPEL]
+name=CSF_EPEL
+baseurl=https://repo.lab.pl.alcatel-lucent.com//CSF_EPEL
+enabled=1
+gpgcheck=0
