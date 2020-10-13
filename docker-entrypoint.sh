@@ -1,6 +1,7 @@
 /usr/sbin/init
 echo "start mounting"
 mount -t nfs 10.15.172.54:/sac/tools /sac/tools
+mount point /sac/tools
 echo "mounting done successfully"
 SSHFILE=~/.ssh/id_rsa.pub
 
