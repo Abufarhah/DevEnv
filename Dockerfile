@@ -3,7 +3,7 @@ ENV container docker
 VOLUME [ "/sys/fs/cgroup" ]
 RUN mkdir /sac
 RUN mkdir /sac/tools
-RUN yum update -y && yum install -y nfs-utils dos2unix openssh-clients wget git
+RUN yum update -y && yum install -y nfs-utils dos2unix openssh-clients wget git vim
 ADD ./docker-entrypoint.sh docker-entrypoint.sh
 ADD ./nokia.repo /etc/yum.repos.d/nokia.repo
 ADD ./redhat.repo /etc/yum.repos.d/redhat.repo
