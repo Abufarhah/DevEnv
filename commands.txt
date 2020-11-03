@@ -1,0 +1,43 @@
+    4  mkdir sac
+    5  cd sac/
+    6  mkdir tools
+    7  cd tools/
+	
+	yum install nfs-utils 
+	mount -t nfs 10.15.172.54:/sac/tools /sac/tools
+	
+	
+	
+	docker run -d --cap-add sys_admin -u root -it sps/centos7 bash
+	
+	RUN mount -t nfs 10.15.172.54:/sac/tools /sac/tools
+
+	docker run -d --name centos7 --cap-add sys_admin -u root -it sps/centos7 bash
+	
+	docker build -t sps/centos7 .
+	
+	CMD ["/usr/sbin/init"]
+
+	yum install openssh-clients -y
+	
+	yum install git
+	
+	ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC0kaP2TJHxMgU9uqZz/+GOE+ZjySX55+XJdBkye5+cm7o1ZbqvLWjHw1T/XvQ/hCPVQl6l3VSV3V7vrxIR1KMB9oGO7kQXr+cxuBL70o+JkXFnAFbRJ+cg11ckHpahTX9nAyKYo4DkQZHMs2srYOuOz+gcSYppS7nj96QPufYj2wFbtdhRlwwkM7kiGOLj3XSKxCgfxd7di0+4UmsIaai53MApUOxQerVg5M71yGkqJ53eZXw+E7Ge1ADwtiJBWT6ITlIqXZ+5e6ywdqjDT2R/eNagn5ClMMbb7YohZwItckOae4uCoy6GEZ8RvWDyPpTTUyWlsat2sTaCyOuJ6WyZ root@6815cbd8cbba
+	
+	git clone "ssh://rimseeh@gerrit.ext.net.nokia.com:29418/DSC_SPS/tpapps" && (cd "tpapps" && gitdir=$(git rev-parse --git-dir); curl -o ${gitdir}/hooks/commit-msg https://gerrit.ext.net.nokia.com/gerrit/static/commit-msg ; chmod +x ${gitdir}/hooks/commit-msg)
+	
+	RSA key fingerprint is SHA256:JL7soi70bRRq805BuKRCOlfzYwyh8wH3Q/a8bVrqIfQ.
+RSA key fingerprint is MD5:e0:90:09:72:1d:3a:5b:98:2d:9f:a1:5b:e0:24:2f:b7.
+
+	docker exec -ti centos7 bash
+	
+	./gradlew -b gradle/sps-plugin/build.gradle build
+	./gradlew clean build publishLocal -x test
+	./gradlew -p servicemanager build buildplugins -x test
+	./gradlew package -x test
+	
+	export JAVA_HOME=/usr/lib/jvm/java
+ 	export SAC_TOOLS=/sac/tools/bin/
+	
+	rm -rf .gradle
+	./gradlew --stop

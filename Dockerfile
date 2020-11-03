@@ -3,7 +3,10 @@ ENV container docker
 VOLUME [ "/sys/fs/cgroup" ]
 RUN mkdir /sac
 RUN mkdir /sac/tools
-RUN yum update -y && yum install -y nfs-utils dos2unix openssh-clients wget git vim
+RUN yum update -y && yum install -y nfs-utils dos2unix openssh-clients wget git vim deltarpm
+RUN yum groupinstall -y "GNOME Desktop" "Graphical Administration Tools"
+RUN yum groupinstall -y "Server with GUI"
+RUN ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target
 ADD ./docker-entrypoint.sh docker-entrypoint.sh
 ADD ./nokia.repo /etc/yum.repos.d/nokia.repo
 ADD ./redhat.repo /etc/yum.repos.d/redhat.repo
